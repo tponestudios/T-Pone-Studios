@@ -179,7 +179,7 @@ const Features: React.FC = () => {
       bullets: [
         "Local SEO optimization for Google rankings",
         "Targeted Google Ads campaigns",
-        "Social media marketing for service businesses"
+        "Facebook & Instagram Ads to target local homeowners before they search."
       ]
     },
     {
