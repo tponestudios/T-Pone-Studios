@@ -345,19 +345,19 @@ const Testimonials: React.FC = () => {
       name: "Dr. Sarah Miller",
       business: "Miller Family Dental",
       quote: "T-Pone Studios helped us increase new patient appointments by 300% in 90 days. Their transparent reporting shows exactly which marketing channels deliver results.",
-      img: "https://i.pravatar.cc/150?u=sarah"
+      img: ""
     },
     {
       name: "Mark Henderson",
       business: "Henderson HVAC Services",
       quote: "Finally, a marketing agency that focuses on actual results. T-Pone consistently delivers qualified leads that convert into service calls. Our calendar stays booked.",
-      img: "https://i.pravatar.cc/150?u=mark"
+      img: ""
     },
     {
       name: "Elena Rodriguez",
       business: "Rodriguez Construction",
       quote: "The online reputation management transformed our business. We improved from 3.8 to 4.7 stars on Google, which directly increased our project inquiries.",
-      img: "https://i.pravatar.cc/150?u=elena"
+      img: ""
     }
   ];
 
@@ -384,32 +384,35 @@ const Testimonials: React.FC = () => {
           </div>
         </div>
 
-        <div className="relative max-w-5xl mx-auto min-h-[300px] md:min-h-[400px]">
+        <div className="relative max-w-4xl mx-auto min-h-[280px] md:min-h-[320px]">
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className={`absolute inset-0 transition-all duration-1000 ease-in-out transform flex flex-col md:flex-row items-center gap-6 md:gap-12 ${idx === activeIndex ? 'opacity-100 translate-x-0 scale-100 pointer-events-auto' : 'opacity-0 translate-x-10 scale-95 pointer-events-none'
-                }`}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${idx === activeIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}
             >
-              <div className="md:w-1/3 flex justify-center">
-                <div className="relative group">
-                  <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-[#8D53FF] to-[#EC4899] rounded-full blur-xl md:blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
-                  <img
-                    src={t.img}
-                    alt={`${t.name}, ${t.business} - T-Pone Studios client testimonial`}
-                    className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-[2rem] md:rounded-[3rem] object-cover border-4 border-zinc-900 shadow-2xl relative z-10"
-                    loading="lazy"
-                  />
+              <div className="bg-gray-900/40 border border-white/5 rounded-3xl p-8 md:p-12 backdrop-blur-sm">
+                {/* Stars */}
+                <div className="flex justify-center mb-6">
+                  {[1, 2, 3, 4, 5].map(s => <Star key={s} fill="#8D53FF" size={20} className="text-[#8D53FF] mx-0.5" />)}
                 </div>
-              </div>
-              <div className="md:w-2/3 text-center md:text-left">
-                <div className="flex justify-center md:justify-start mb-4 md:mb-6">
-                  {[1, 2, 3, 4, 5].map(s => <Star key={s} fill="#8D53FF" size={18} className="text-[#8D53FF] mr-0.5 md:mr-1" />)}
-                </div>
-                <p className="text-base md:text-2xl lg:text-4xl font-medium text-white italic mb-6 md:mb-10 leading-snug">"{t.quote}"</p>
-                <div>
-                  <h4 className="text-xl md:text-2xl font-black text-white tracking-tight">{t.name}</h4>
-                  <p className="bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent text-sm md:text-lg font-bold tracking-wider uppercase">{t.business}</p>
+                
+                {/* Quote */}
+                <blockquote className="text-center">
+                  <p className="text-lg md:text-2xl lg:text-3xl font-medium text-white leading-relaxed mb-8">
+                    "{t.quote}"
+                  </p>
+                </blockquote>
+                
+                {/* Author Info */}
+                <div className="text-center">
+                  <div className="inline-flex items-center gap-3">
+                    <div className="h-px w-8 bg-gradient-to-r from-transparent to-[#8D53FF]"></div>
+                    <div>
+                      <h4 className="text-base md:text-lg font-bold text-white">{t.name}</h4>
+                      <p className="text-sm text-gray-400">{t.business}</p>
+                    </div>
+                    <div className="h-px w-8 bg-gradient-to-l from-transparent to-[#8D53FF]"></div>
+                  </div>
                 </div>
               </div>
             </div>
