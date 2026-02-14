@@ -18,14 +18,11 @@ import {
     type Variants,
 } from "framer-motion";
 
-// --- Helper Functions and Fallbacks ---
-
-// A simple utility for class names, similar to cn/clsx
+// --- Helper Functions ---
 const cn = (...classes: (string | boolean | undefined)[]) => {
     return clsx(...classes);
 };
 
-// Placeholder for image assets if they are not found.
 const placeholderImage = (text = "Image") =>
     `https://placehold.co/600x400/1a1a1a/ffffff?text=${text}`;
 
@@ -61,13 +58,6 @@ export interface Step {
 }
 
 interface FeatureCarouselProps extends CardProps {
-    step1img1Class?: string;
-    step1img2Class?: string;
-    step2img1Class?: string;
-    step2img2Class?: string;
-    step3imgClass?: string;
-    step4imgClass?: string;
-    step5imgClass?: string;
     image: ImageSet;
     steps: Step[];
 }
@@ -76,9 +66,6 @@ interface StepImageProps {
     src: StaticImageData;
     alt: string;
     className?: string;
-    style?: React.CSSProperties;
-    width?: number;
-    height?: number;
 }
 
 const ANIMATION_PRESETS = {
@@ -88,18 +75,6 @@ const ANIMATION_PRESETS = {
         exit: { opacity: 0, scale: 0.95 },
         transition: { type: "spring", stiffness: 300, damping: 25, mass: 0.5 },
     },
-    slideInRight: {
-        initial: { opacity: 0, x: 20 },
-        animate: { opacity: 1, x: 0 },
-        exit: { opacity: 0, x: -20 },
-        transition: { type: "spring", stiffness: 300, damping: 25, mass: 0.5 },
-    },
-    slideInLeft: {
-        initial: { opacity: 0, x: -20 },
-        animate: { opacity: 1, x: 0 },
-        exit: { opacity: 0, x: 20 },
-        transition: { type: "spring", stiffness: 300, damping: 25, mass: 0.5 },
-    },
 } as const;
 
 type AnimationPreset = keyof typeof ANIMATION_PRESETS;
@@ -107,7 +82,6 @@ type AnimationPreset = keyof typeof ANIMATION_PRESETS;
 interface AnimatedStepImageProps extends StepImageProps {
     preset?: AnimationPreset;
     delay?: number;
-    onAnimationComplete?: () => void;
 }
 
 // --- Hooks ---
@@ -135,19 +109,6 @@ function useNumberCycler(totalSteps: number, interval: number = 8000) {
     return { currentNumber, setStep };
 }
 
-function useIsMobile() {
-    const [isMobile, setIsMobile] = useState(false);
-    useEffect(() => {
-        const checkDevice = () => {
-            setIsMobile(window.matchMedia("(max-width: 768px)").matches);
-        };
-        checkDevice();
-        window.addEventListener("resize", checkDevice);
-        return () => window.removeEventListener("resize", checkDevice);
-    }, []);
-    return isMobile;
-}
-
 // --- Components ---
 function IconCheck({ className, ...props }: React.ComponentProps<"svg">) {
     return (
@@ -169,7 +130,7 @@ const stepVariants: Variants = {
 };
 
 const StepImage = forwardRef<HTMLImageElement, StepImageProps>(
-    ({ src, alt, className, style, ...props }, ref) => {
+    ({ src, alt, className, ...props }, ref) => {
         return (
             <img
                 ref={ref}
@@ -177,10 +138,8 @@ const StepImage = forwardRef<HTMLImageElement, StepImageProps>(
                 className={className}
                 src={src}
                 style={{
-                    position: "absolute",
-                    userSelect: "none",
-                    maxWidth: "unset",
-                    ...style,
+                    maxWidth: "100%",
+                    height: "auto",
                 }}
                 onError={(e) => (e.currentTarget.src = placeholderImage(alt))}
                 {...props}
@@ -207,100 +166,51 @@ const AnimatedStepImage = ({
     );
 };
 
-function FeatureCard({
-    children,
+function FeatureContent({
     step,
     steps,
 }: {
-    children: React.ReactNode;
     step: number;
     steps: Step[];
 }) {
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-    const isMobile = useIsMobile();
-    function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
-        if (isMobile) return;
-        const { left, top } = currentTarget.getBoundingClientRect();
-        mouseX.set(clientX - left);
-        mouseY.set(clientY - top);
-    }
     return (
-        <motion.div
-            className="animated-cards group relative w-full rounded-2xl"
-            onMouseMove={handleMouseMove}
-            style={
-                {
-                    "--x": useMotionTemplate`${mouseX}px`,
-                    "--y": useMotionTemplate`${mouseY}px`,
-                } as WrapperStyle
-            }
-        >
-            {/* T-Pone Style: Dark glass background with border glow */}
-            <div className="relative w-full overflow-hidden rounded-3xl border border-white/10 bg-gray-900/40 backdrop-blur-md transition-colors duration-300">
-                <div className="m-4 md:m-10 min-h-[350px] md:min-h-[450px] w-full">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={step}
-                            className="flex w-full flex-col gap-3 md:gap-4 relative z-20"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                        >
-                            <motion.div
-                                className="text-xs md:text-sm font-bold uppercase tracking-wider bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{
-                                    delay: 0.05,
-                                    duration: 0.3,
-                                    ease: [0.22, 1, 0.36, 1],
-                                }}
-                            >
-                                {steps[step].name}
-                            </motion.div>
-                            <motion.h2
-                                className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-white"
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{
-                                    delay: 0.1,
-                                    duration: 0.3,
-                                    ease: [0.22, 1, 0.36, 1],
-                                }}
-                            >
-                                {steps[step].title}
-                            </motion.h2>
-                            <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{
-                                    delay: 0.15,
-                                    duration: 0.3,
-                                    ease: [0.22, 1, 0.36, 1],
-                                }}
-                            >
-                                <p className="text-sm md:text-base leading-relaxed text-gray-400 mb-3 md:mb-4">
-                                    {steps[step].description}
-                                </p>
-                                {steps[step].bullets && (
-                                    <ul className="space-y-2 md:space-y-3">
-                                        {steps[step].bullets.map((bullet, idx) => (
-                                            <li key={idx} className="flex items-start text-gray-300 text-sm md:text-base leading-relaxed">
-                                                <span className="mr-2 md:mr-3 text-[#8D53FF] font-bold text-base md:text-lg">•</span>
-                                                {bullet}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
-                            </motion.div>
-                        </motion.div>
-                    </AnimatePresence>
-                    {children}
-                </div>
-            </div>
-        </motion.div>
+        <div className="flex flex-col gap-3 md:gap-4">
+            <motion.div
+                className="text-xs md:text-sm font-bold uppercase tracking-wider bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.05, duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            >
+                {steps[step].name}
+            </motion.div>
+            <motion.h2
+                className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-white"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1, duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            >
+                {steps[step].title}
+            </motion.h2>
+            <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.15, duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            >
+                <p className="text-sm md:text-base leading-relaxed text-gray-400 mb-3 md:mb-4">
+                    {steps[step].description}
+                </p>
+                {steps[step].bullets && (
+                    <ul className="space-y-2 md:space-y-3">
+                        {steps[step].bullets.map((bullet, idx) => (
+                            <li key={idx} className="flex items-start text-gray-300 text-sm md:text-base leading-relaxed">
+                                <span className="mr-2 md:mr-3 text-[#8D53FF] font-bold text-base md:text-lg flex-shrink-0">•</span>
+                                {bullet}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </motion.div>
+        </div>
     );
 }
 
@@ -316,7 +226,7 @@ function StepsNav({
     return (
         <nav aria-label="Progress" className="flex justify-center px-4">
             <ol
-                className="flex w-full flex-wrap items-center justify-center gap-2"
+                className="flex w-full flex-wrap items-center justify-center gap-2 md:gap-3"
                 role="list"
             >
                 {stepItems.map((step, stepIdx) => {
@@ -334,7 +244,7 @@ function StepsNav({
                             <button
                                 type="button"
                                 className={cn(
-                                    "group flex items-center gap-2.5 rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#8D53FF]",
+                                    "group flex items-center gap-2 md:gap-2.5 rounded-full px-2.5 md:px-3.5 py-1.5 text-xs md:text-sm font-medium transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#8D53FF]",
                                     isCurrent
                                         ? "bg-[#06B6D4] text-black font-bold"
                                         : "bg-gray-800 text-gray-400 hover:bg-gray-700"
@@ -343,7 +253,7 @@ function StepsNav({
                             >
                                 <span
                                     className={cn(
-                                        "flex h-5 w-5 shrink-0 items-center justify-center rounded-full transition-all duration-300",
+                                        "flex h-4 w-4 md:h-5 md:w-5 shrink-0 items-center justify-center rounded-full transition-all duration-300 text-xs",
                                         isCompleted
                                             ? "bg-[#8D53FF] text-white"
                                             : isCurrent
@@ -352,7 +262,7 @@ function StepsNav({
                                     )}
                                 >
                                     {isCompleted ? (
-                                        <IconCheck className="h-3.5 w-3.5" />
+                                        <IconCheck className="h-3 w-3" />
                                     ) : (
                                         <span>{stepIdx + 1}</span>
                                     )}
@@ -367,100 +277,71 @@ function StepsNav({
     );
 }
 
-
-
-// T-Pone Default positioning (prevents overlap)
-const defaultClasses = {
-    img: "rounded-xl border border-white/10 shadow-2xl shadow-black/50 absolute object-cover",
-    step1img1: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl md:block hidden",
-    step1img2: "w-[45%] left-[65%] top-[35%] z-20 md:block hidden",
-    step2img1: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl md:block hidden",
-    step2img2: "w-[40%] left-[60%] top-[45%] z-20 md:block hidden",
-    step3img: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl md:block hidden",
-    step4img: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl md:block hidden",
-    step5img: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl md:block hidden",
-} as const;
-
 export function FeatureCarousel({
     image,
     steps,
-    step1img1Class = defaultClasses.step1img1,
-    step1img2Class = defaultClasses.step1img2,
-    step2img1Class = defaultClasses.step2img1,
-    step2img2Class = defaultClasses.step2img2,
-    step3imgClass = defaultClasses.step3img,
-    step4imgClass = defaultClasses.step4img,
-    step5imgClass = defaultClasses.step5img,
-    ...props
 }: FeatureCarouselProps) {
     const { currentNumber: step, setStep } = useNumberCycler(steps.length);
 
-    const renderStepContent = () => {
-        switch (step) {
+    const getStepImage = (stepIndex: number) => {
+        switch (stepIndex) {
             case 0:
-                return (
-                    <AnimatedStepImage
-                        alt={image.alt}
-                        className={cn(defaultClasses.img, step1img1Class)}
-                        src={image.step1img1}
-                        preset="slideInLeft"
-                    />
-                );
+                return image.step1img1;
             case 1:
-                return (
-                    <AnimatedStepImage
-                        alt={image.alt}
-                        className={cn(defaultClasses.img, step2img1Class)}
-                        src={image.step2img1}
-                        preset="fadeInScale"
-                    />
-                );
+                return image.step2img1;
             case 2:
-                return (
-                    <AnimatedStepImage
-                        alt={image.alt}
-                        className={cn(defaultClasses.img, step3imgClass)}
-                        src={image.step3img}
-                        preset="fadeInScale"
-                    />
-                );
+                return image.step3img;
             case 3:
-                return (
-                    <AnimatedStepImage
-                        alt={image.alt}
-                        className={cn(defaultClasses.img, step4imgClass)}
-                        src={image.step4img}
-                        preset="fadeInScale"
-                    />
-                );
+                return image.step4img;
             case 4:
-                // Safety Net (Retargeting) - Ad flow
-                return (
-                    <AnimatedStepImage
-                        alt={image.alt}
-                        className={cn(defaultClasses.img, step5imgClass)}
-                        src={image.step5img}
-                        preset="fadeInScale"
-                    />
-                );
+                return image.step5img;
             default:
-                return null;
+                return image.step1img1;
         }
     };
 
     return (
-        <div className="flex flex-col gap-8 md:gap-12 w-full max-w-5xl mx-auto px-2 md:p-4">
-            <FeatureCard {...props} step={step} steps={steps}>
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={step}
-                        {...ANIMATION_PRESETS.fadeInScale}
-                        className="w-full h-full absolute top-0 left-0 hidden md:block"
-                    >
-                        {renderStepContent()}
-                    </motion.div>
-                </AnimatePresence>
-            </FeatureCard>
+        <div className="flex flex-col gap-6 md:gap-8 w-full max-w-6xl mx-auto px-3 md:px-4">
+            {/* Main Card - Clean Two Column Layout */}
+            <div className="relative w-full rounded-2xl md:rounded-3xl border border-white/10 bg-gray-900/40 backdrop-blur-md overflow-hidden">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 p-5 md:p-8 lg:p-12">
+                    {/* Left Column - Content */}
+                    <div className="flex flex-col justify-center min-h-[280px] md:min-h-[350px]">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={step}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                            >
+                                <FeatureContent step={step} steps={steps} />
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+
+                    {/* Right Column - Image */}
+                    <div className="flex items-center justify-center min-h-[200px] md:min-h-[350px]">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={step}
+                                {...ANIMATION_PRESETS.fadeInScale}
+                                className="w-full h-full flex items-center justify-center"
+                            >
+                                <div className="relative w-full max-w-[320px] md:max-w-[400px] aspect-square rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                    <AnimatedStepImage
+                                        src={getStepImage(step)}
+                                        alt={image.alt}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+                </div>
+            </div>
+
+            {/* Navigation */}
             <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
