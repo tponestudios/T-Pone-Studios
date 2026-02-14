@@ -6,7 +6,7 @@ export const AuroraHero = () => {
     return (
         <section className="relative min-h-screen w-full bg-gray-950 overflow-hidden">
             <ParticleTextEffect 
-                words={["T-PONE", "STUDIOS", "DOMINATE", "GROWTH", "LEADS", "RESULTS"]}
+                words={["T-PONE STUDIOS", "DESIGN", "ATTRACT", "CONVERT", "SCALE"]}
                 className="w-full h-screen"
             />
             
