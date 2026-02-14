@@ -178,7 +178,7 @@ const Features: React.FC = () => {
       description: "A strategic mix of search and social advertising that puts your business in front of high-intent customers.",
       bullets: [
         "Local SEO to dominate Google Maps and organic rankings",
-        "Google Search Ads to capture customers actively looking for you",
+        "Google Search Ads for high-intent leads",
         "Facebook & Instagram Ads to reach homeowners first"
       ]
     },
