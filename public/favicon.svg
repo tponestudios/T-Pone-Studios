@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <defs>
     <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8D53FF"/>
-      <stop offset="100%" style="stop-color:#EC4899"/>
+      <stop offset="0%" style="stop-color:#9B59FF"/>
+      <stop offset="100%" style="stop-color:#8D53FF"/>
     </linearGradient>
   </defs>
   
-  <!-- Large sparkle -->
-  <path d="M16 4L17.5 12.5L26 14L17.5 15.5L16 24L14.5 15.5L6 14L14.5 12.5L16 4Z" fill="url(#gradient1)"/>
+  <!-- Large sparkle - thicker -->
+  <path d="M16 2L18 13L30 15L18 17L16 28L14 17L2 15L14 13L16 2Z" fill="url(#gradient1)"/>
   
-  <!-- Medium sparkle -->
-  <path d="M24 18L24.8 21.2L28 22L24.8 22.8L24 26L23.2 22.8L20 22L23.2 21.2L24 18Z" fill="#8D53FF" opacity="0.9"/>
+  <!-- Medium sparkle - thicker -->
+  <path d="M24 16L25.5 20.5L30 22L25.5 23.5L24 28L22.5 23.5L18 22L22.5 20.5L24 16Z" fill="#8D53FF"/>
   
-  <!-- Small sparkle -->
-  <path d="M8 20L8.5 22.5L11 23L8.5 23.5L8 26L7.5 23.5L5 23L7.5 22.5L8 20Z" fill="#EC4899" opacity="0.8"/>
+  <!-- Small sparkle - thicker -->
+  <path d="M8 18L9 21.5L12.5 22.5L9 23.5L8 27L7 23.5L3.5 22.5L7 21.5L8 18Z" fill="#7C3AED"/>
 </svg>
