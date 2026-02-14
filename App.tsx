@@ -352,21 +352,16 @@ const Testimonials: React.FC = () => {
       business: "Henderson HVAC Services",
       quote: "Finally, a marketing agency that focuses on actual results. T-Pone consistently delivers qualified leads that convert into service calls. Our calendar stays booked.",
       img: ""
-    },
-    {
-      name: "Elena Rodriguez",
-      business: "Rodriguez Construction",
-      quote: "The online reputation management transformed our business. We improved from 3.8 to 4.7 stars on Google, which directly increased our project inquiries.",
-      img: ""
     }
   ];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [testimonials.length]);
+  const goToNext = () => {
+    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const goToPrev = () => {
+    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
 
   return (
     <section id="testimonials" className="py-16 md:py-32 bg-gray-950 relative overflow-hidden border-t border-white/5">
@@ -375,10 +370,10 @@ const Testimonials: React.FC = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-[#EC4899]/5 via-transparent to-transparent pointer-events-none"></div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center mb-10 md:mb-20">
+        <div className="text-center mb-10 md:mb-16">
           <h2 className="text-2xl md:text-4xl lg:text-6xl font-black bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent mb-4 md:mb-6 tracking-tight uppercase">Client Success Stories</h2>
           <div className="flex justify-center space-x-2">
-            {[0, 1, 2].map(i => (
+            {[0, 1].map(i => (
               <div key={i} className={`h-1.5 rounded-full transition-all duration-500 ${activeIndex === i ? 'w-8 md:w-12 bg-gradient-to-r from-[#8D53FF] to-[#EC4899]' : 'w-3 md:w-4 bg-gray-800'}`}></div>
             ))}
           </div>
@@ -388,7 +383,7 @@ const Testimonials: React.FC = () => {
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${idx === activeIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}
+              className={`absolute inset-0 transition-all duration-700 ease-in-out ${idx === activeIndex ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20 pointer-events-none'}`}
             >
               <div className="bg-gray-900/40 border border-white/5 rounded-3xl p-8 md:p-12 backdrop-blur-sm">
                 {/* Stars */}
@@ -417,6 +412,24 @@ const Testimonials: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Navigation Arrows */}
+        <div className="flex justify-center items-center gap-6 mt-8">
+          <button 
+            onClick={goToPrev}
+            className="p-3 rounded-full border border-white/10 bg-gray-900/50 text-white/60 hover:text-white hover:border-[#8D53FF]/50 hover:bg-gray-800 transition-all duration-300"
+            aria-label="Previous testimonial"
+          >
+            <ChevronRight size={24} className="rotate-180" />
+          </button>
+          <button 
+            onClick={goToNext}
+            className="p-3 rounded-full border border-white/10 bg-gray-900/50 text-white/60 hover:text-white hover:border-[#8D53FF]/50 hover:bg-gray-800 transition-all duration-300"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
       </div>
     </section>
