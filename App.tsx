@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-black/80 backdrop-blur-xl border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#" className="text-2xl font-black tracking-tighter text-white group">
-          T-PONE <span className="text-[#8D53FF] group-hover:text-[#A67BFF] transition-colors">STUDIOS</span>
+          T-PONE <span className="bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent">STUDIOS</span>
         </a>
 
         {/* Desktop Links */}
