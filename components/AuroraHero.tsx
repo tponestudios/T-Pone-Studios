@@ -9,6 +9,7 @@ import {
     animate,
 } from "framer-motion";
 import { AuroraButton } from "./AuroraButton";
+import { ParticleTextEffect } from "./ui/particle-text-effect";
 
 const COLORS_TOP = ["#8D53FF", "#EC4899", "#06B6D4", "#7a42eb"];
 
@@ -33,6 +34,17 @@ export const AuroraHero = () => {
             }}
             className="relative grid min-h-screen place-content-center overflow-hidden bg-gray-950 px-3 py-20 md:px-4 text-gray-200"
         >
+            {/* Particle Effect Background */}
+            <div className="absolute inset-0 z-0">
+                <ParticleTextEffect 
+                    words={["T-PONE", "STUDIOS", "DOMINATE", "GROWTH", "RESULTS", "LEADS"]}
+                    className="w-full h-full"
+                />
+            </div>
+
+            {/* Gradient overlay for readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-950/60 via-gray-950/40 to-gray-950 z-0" />
+
             <div className="relative z-10 flex flex-col items-center px-4">
                 <div className="inline-flex items-center space-x-2 bg-[#8D53FF]/10 border border-[#8D53FF]/20 rounded-full px-3 py-1.5 mb-6">
                     <span className="relative flex h-2 w-2">
