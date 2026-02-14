@@ -174,12 +174,12 @@ const Features: React.FC = () => {
     {
       id: "1",
       name: "Discovery",
-      title: "Drive Local Traffic",
-      description: "Strategic digital marketing that puts your business in front of high-intent local customers actively searching for your services.",
+      title: "Drive Qualified Local Traffic",
+      description: "A strategic mix of search and social advertising that puts your business in front of high-intent customers.",
       bullets: [
-        "Local SEO optimization for Google rankings",
-        "Targeted Google Ads campaigns",
-        "Facebook & Instagram Ads to target local homeowners before they search."
+        "Local SEO to dominate Google Maps and organic rankings",
+        "Google Search Ads to capture customers actively looking for you",
+        "Facebook & Instagram Ads to reach homeowners first"
       ]
     },
     {
