@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import {
   ChevronRight,
   Monitor,
@@ -11,7 +11,6 @@ import {
   CheckCircle2,
   Menu,
   X,
-  ArrowUp,
   Globe,
   TrendingUp,
   MessageSquare,
@@ -463,22 +462,11 @@ const Footer: React.FC = () => {
 
 const StickyCTA: React.FC = () => {
   const [visible, setVisible] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
-  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      // Determine direction
-      if (currentScrollY > lastScrollY.current) {
-        setScrollDirection('down');
-      } else {
-        setScrollDirection('up');
-      }
-      lastScrollY.current = currentScrollY;
-
-      // Logic: show if scrolled past hero AND (scrolling up OR near bottom)
+      // Show if scrolled past hero section
       if (currentScrollY > 600) {
         setVisible(true);
       } else {
@@ -491,26 +479,14 @@ const StickyCTA: React.FC = () => {
   }, []);
 
   return (
-    <>
-      {/* Back to top - minimal */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className={`fixed bottom-24 right-8 z-40 bg-zinc-900/50 backdrop-blur-md p-4 rounded-full text-white/40 hover:text-[#8D53FF] border border-white/5 transition-all duration-300 hover:scale-110 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8D53FF] ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-        aria-label="Scroll back to top of page"
-      >
-        <ArrowUp size={20} aria-hidden="true" />
-      </button>
-
-      {/* Main Sticky Action Bar */}
-      <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-md transition-all duration-500 transform ${visible && scrollDirection === 'up' ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'}`}>
-        <AuroraButton ariaLabel="Get your free marketing plan" className="w-full justify-center py-5 text-xl">
-          <span>Get Your Free Plan</span>
-          <div className="bg-white/20 p-1 rounded-lg ml-3">
-            <Zap size={16} fill="white" className="text-white" aria-hidden="true" />
-          </div>
-        </AuroraButton>
-      </div>
-    </>
+    <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-md transition-all duration-500 transform ${visible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'}`}>
+      <AuroraButton ariaLabel="Get your free marketing plan" className="w-full justify-center py-5 text-xl">
+        <span>Get Your Free Plan</span>
+        <div className="bg-white/20 p-1 rounded-lg ml-3">
+          <Zap size={16} fill="white" className="text-white" aria-hidden="true" />
+        </div>
+      </AuroraButton>
+    </div>
   );
 };
 
