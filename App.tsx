@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   ChevronRight,
   Monitor,
@@ -462,30 +462,50 @@ const Footer: React.FC = () => {
 
 const StickyCTA: React.FC = () => {
   const [visible, setVisible] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      // Show if scrolled past hero section
-      if (currentScrollY > 600) {
+      
+      // Only show when scrolling up and past hero section
+      if (currentScrollY > 600 && currentScrollY < lastScrollY.current && !isDismissed) {
         setVisible(true);
       } else {
         setVisible(false);
       }
+      
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isDismissed]);
+
+  if (isDismissed) return null;
 
   return (
-    <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-md transition-all duration-500 transform ${visible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'}`}>
-      <AuroraButton ariaLabel="Get your free marketing plan" className="w-full justify-center py-5 text-xl">
-        <span>Get Your Free Plan</span>
-        <div className="bg-white/20 p-1 rounded-lg ml-3">
-          <Zap size={16} fill="white" className="text-white" aria-hidden="true" />
-        </div>
-      </AuroraButton>
+    <div className={`fixed bottom-8 right-8 z-40 transition-all duration-500 transform ${visible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'}`}>
+      <div className="relative group">
+        {/* Close button */}
+        <button 
+          onClick={() => setIsDismissed(true)}
+          className="absolute -top-2 -right-2 w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition-all z-10"
+          aria-label="Dismiss CTA"
+        >
+          <X size={12} />
+        </button>
+        
+        {/* Compact floating button */}
+        <button 
+          className="flex items-center gap-2 bg-gradient-to-r from-[#8D53FF] to-[#EC4899] text-white px-5 py-3 rounded-full shadow-[0_4px_20px_rgba(141,83,255,0.3)] hover:shadow-[0_6px_30px_rgba(141,83,255,0.5)] transition-all duration-300 hover:scale-105 group-hover:opacity-100"
+          aria-label="Get your free marketing plan"
+        >
+          <Zap size={16} fill="white" className="text-white" />
+          <span className="text-sm font-semibold whitespace-nowrap">Get Free Plan</span>
+        </button>
+      </div>
     </div>
   );
 };
