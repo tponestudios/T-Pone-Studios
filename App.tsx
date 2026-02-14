@@ -42,8 +42,8 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Services', href: '#services' },
-    { name: 'Our Process', href: '#process' },
-    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'Process', href: '#process' },
+    { name: 'Results', href: '#testimonials' },
   ];
 
   return (
@@ -169,61 +169,61 @@ const LegacyHero: React.FC = () => {
 };
 
 const Features: React.FC = () => {
-  // ... (steps and images remain same)
+  // Professional customer journey steps - SEO optimized
   const steps: Step[] = [
     {
       id: "1",
-      name: "The Trigger",
-      title: "They find you on Google",
-      description: "When someone in your area needs a pro, they grab their phone and search. We make sure they find your business first.",
+      name: "Discovery",
+      title: "Drive Local Traffic",
+      description: "Strategic digital marketing that puts your business in front of high-intent local customers actively searching for your services.",
       bullets: [
-        "Local searches for your services",
-        "Ads popping up on Google & Meta",
-        "Catching them while they're ready to hire"
+        "Local SEO optimization for Google rankings",
+        "Targeted Google Ads campaigns",
+        "Social media marketing for service businesses"
       ]
     },
     {
       id: "2",
-      name: "The Validation",
-      title: "They see you're the best",
-      description: "People don't just click—they verify. We show them they can trust you before they even say hello.",
+      name: "Trust",
+      title: "Build Online Authority",
+      description: "Establish credibility through professional online presence and positive customer reviews that differentiate your business.",
       bullets: [
-        "Recent 5-star reviews on display",
-        "A professional Google Business Profile",
-        "Instant trust that stops the scroll"
+        "Google Business Profile optimization",
+        "Online reputation management",
+        "Customer review generation strategy"
       ]
     },
     {
       id: "3",
-      name: "The Capture",
-      title: "They land on your site",
-      description: "We send them to a page designed to do one thing: get you a lead. No generic homepages, just clear offers that convert.",
+      name: "Engagement",
+      title: "Convert Website Visitors",
+      description: "High-performance websites designed specifically for lead generation and optimized for mobile users.",
       bullets: [
-        "Lightning-fast mobile loading",
-        "Zero distractions, just results",
-        "A clear reason to choose you"
+        "Professional website design for local businesses",
+        "Mobile-responsive landing pages",
+        "Clear call-to-action placement"
       ]
     },
     {
       id: "4",
-      name: "The Conversion",
-      title: "They pick up the phone",
-      description: "This is the moment that matters. We make it brain-dead simple for them to call or book a job with you.",
+      name: "Conversion",
+      title: "Generate Quality Leads",
+      description: "Streamlined user experience that makes contacting your business effortless and immediate.",
       bullets: [
-        "Huge 'Call Now' buttons",
-        "Easy 1-click booking",
-        "Casual browsers become paying jobs"
+        "Click-to-call functionality",
+        "Online booking system integration",
+        "Lead capture forms that convert"
       ]
     },
     {
       id: "5",
-      name: "The Safety Net",
-      title: "We bring them back",
-      description: "Not everyone calls on the first try. We stick with them so you're the only one they think of when they're ready.",
+      name: "Retention",
+      title: "Maximize Customer Value",
+      description: "Retargeting strategies that keep your business visible to prospects until they're ready to purchase.",
       bullets: [
-        "Ads that follow them for 7 days",
-        "Gentle reminders to finish booking",
-        "Closing the loop on every visitor"
+        "Retargeting ad campaigns",
+        "Email marketing for service businesses",
+        "Customer relationship management"
       ]
     }
   ];
@@ -250,8 +250,8 @@ const Features: React.FC = () => {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-8 md:mb-12 max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-black bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent mb-4 md:mb-6 tracking-tight">The Complete Local Growth System</h2>
-          <p className="text-gray-400 text-sm md:text-lg leading-relaxed px-2">The Mechanical Customer Journey: How we turn strangers into paying customers.</p>
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-black bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent mb-4 md:mb-6 tracking-tight">Digital Marketing for Local Businesses</h2>
+          <p className="text-gray-400 text-sm md:text-lg leading-relaxed px-2">A proven system that transforms website visitors into qualified leads and customers for service-based businesses.</p>
         </div>
 
         <FeatureCarousel
@@ -270,16 +270,16 @@ const Reporting: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col md:flex-row items-center gap-10 md:gap-20">
         <div className="md:w-1/2">
           <h2 className="text-2xl md:text-4xl lg:text-6xl font-black bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent mb-4 md:mb-8 leading-[1.1] tracking-tight">
-            Results You Can <span className="bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent">Actually See.</span>
+            Transparent <span className="bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent">Performance Reporting</span>
           </h2>
           <p className="text-base md:text-xl text-gray-400 mb-6 md:mb-10 leading-relaxed font-medium">
-            No confusing jargon. We send you a simple weekly report showing exactly how many new leads and calls we generated for you.
+            Clear, actionable analytics that show exactly how your marketing investment translates into measurable business growth.
           </p>
           <div className="space-y-4 md:space-y-6">
             {[
-              { title: "Weekly Lead Dashboards", desc: "See your ROI in real-time." },
-              { title: "Call Tracking", desc: "Know exactly which ads are ringing your phone." },
-              { title: "Review Insights", desc: "Monitor your local reputation effortlessly." }
+              { title: "Real-Time Lead Tracking", desc: "Monitor new inquiries and conversions as they happen." },
+              { title: "Call Attribution Analytics", desc: "Identify which campaigns drive actual phone calls." },
+              { title: "Reputation Monitoring", desc: "Track and manage your online reviews across platforms." }
             ].map((item, i) => (
               <div key={i} className="flex group p-3 md:p-4 rounded-xl md:rounded-2xl hover:bg-white/5 transition-colors duration-300 border border-transparent hover:border-white/5">
                 <div className="flex-shrink-0 mt-1 mr-3 md:mr-4 bg-[#8D53FF]/20 p-2 md:p-2.5 rounded-lg md:rounded-xl group-hover:bg-[#8D53FF] transition-all duration-300 shadow-[0_0_15px_rgba(141,83,255,0.2)]">
@@ -305,21 +305,21 @@ const Reporting: React.FC = () => {
               </div>
               <div className="text-[10px] md:text-xs text-white/30 font-bold tracking-[0.2em] uppercase flex items-center gap-1 md:gap-2">
                 <Sparkles size={10} className="text-[#EC4899] md:size-12" />
-                Weekly Performance
+                Performance Analytics
               </div>
             </div>
 
             <div className="space-y-6 md:space-y-10">
               <div className="grid grid-cols-2 gap-3 md:gap-6">
                 <div className="bg-black/40 p-3 md:p-6 rounded-xl md:rounded-3xl border border-white/5 hover:border-[#8D53FF]/30 transition-colors duration-300">
-                  <p className="text-gray-500 text-[10px] md:text-xs font-bold uppercase mb-1 md:mb-2 tracking-wider">New Leads</p>
+                  <p className="text-gray-500 text-[10px] md:text-xs font-bold uppercase mb-1 md:mb-2 tracking-wider">Qualified Leads</p>
                   <p className="text-2xl md:text-4xl font-black text-white">+58</p>
                   <div className="w-full h-1 md:h-1.5 bg-gray-800 mt-2 md:mt-4 rounded-full overflow-hidden">
                     <div className="w-4/5 h-full bg-gradient-to-r from-[#8D53FF] to-[#EC4899] rounded-full shadow-[0_0_10px_rgba(236,72,153,0.5)]"></div>
                   </div>
                 </div>
                 <div className="bg-black/40 p-3 md:p-6 rounded-xl md:rounded-3xl border border-white/5 hover:border-[#06B6D4]/30 transition-colors duration-300">
-                  <p className="text-gray-500 text-[10px] md:text-xs font-bold uppercase mb-1 md:mb-2 tracking-wider">Google Calls</p>
+                  <p className="text-gray-500 text-[10px] md:text-xs font-bold uppercase mb-1 md:mb-2 tracking-wider">Phone Inquiries</p>
                   <p className="text-2xl md:text-4xl font-black text-white">+24</p>
                   <div className="w-full h-1 md:h-1.5 bg-gray-800 mt-2 md:mt-4 rounded-full overflow-hidden">
                     <div className="w-2/3 h-full bg-gradient-to-r from-[#06B6D4] to-[#13FFAA] rounded-full shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
@@ -346,20 +346,20 @@ const Testimonials: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
       name: "Dr. Sarah Miller",
-      business: "Pristine Dental Care",
-      quote: "T-Pone Studios tripled our monthly new patients within just 90 days. Their tracking makes it clear exactly where our growth is coming from.",
+      business: "Miller Family Dental",
+      quote: "T-Pone Studios helped us increase new patient appointments by 300% in 90 days. Their transparent reporting shows exactly which marketing channels deliver results.",
       img: "https://i.pravatar.cc/150?u=sarah"
     },
     {
       name: "Mark Henderson",
-      business: "Henderson Plumbing",
-      quote: "I was tired of agencies charging for 'exposure'. T-Pone delivers actual phone calls. Our schedule is now booked 2 weeks out consistently.",
+      business: "Henderson HVAC Services",
+      quote: "Finally, a marketing agency that focuses on actual results. T-Pone consistently delivers qualified leads that convert into service calls. Our calendar stays booked.",
       img: "https://i.pravatar.cc/150?u=mark"
     },
     {
       name: "Elena Rodriguez",
-      business: "Gusto Italian Kitchen",
-      quote: "The reputation management service alone was worth it. We went from a 3.8 to a 4.7 on Google Maps and the table bookings followed.",
+      business: "Rodriguez Construction",
+      quote: "The online reputation management transformed our business. We improved from 3.8 to 4.7 stars on Google, which directly increased our project inquiries.",
       img: "https://i.pravatar.cc/150?u=elena"
     }
   ];
@@ -379,7 +379,7 @@ const Testimonials: React.FC = () => {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-10 md:mb-20">
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-black bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent mb-4 md:mb-6 tracking-tight italic uppercase">Trusted by Local Giants</h2>
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-black bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent mb-4 md:mb-6 tracking-tight uppercase">Client Success Stories</h2>
           <div className="flex justify-center space-x-2">
             {[0, 1, 2].map(i => (
               <div key={i} className={`h-1.5 rounded-full transition-all duration-500 ${activeIndex === i ? 'w-8 md:w-12 bg-gradient-to-r from-[#8D53FF] to-[#EC4899]' : 'w-3 md:w-4 bg-gray-800'}`}></div>
@@ -429,14 +429,14 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16 md:mb-32">
           <h2 className="text-3xl md:text-5xl lg:text-8xl font-black bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent mb-6 md:mb-10 leading-[1.05] tracking-tighter">
-            Ready to <span className="bg-gradient-to-r from-[#8D53FF] via-[#EC4899] to-[#06B6D4] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(141,83,255,0.4)]">Dominate?</span>
+            Ready to <span className="bg-gradient-to-r from-[#8D53FF] via-[#EC4899] to-[#06B6D4] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(141,83,255,0.4)]">Scale?</span>
           </h2>
           <p className="text-base md:text-xl text-gray-400 mb-8 md:mb-12 max-w-2xl mx-auto font-medium leading-relaxed px-2">
-            Let's build your growth plan today. Schedule your free 15-minute strategy call with our team.
+            Schedule a complimentary strategy session to discuss how we can accelerate your business growth.
           </p>
           <div className="flex justify-center px-4">
-            <AuroraButton ariaLabel="Book my free strategy call now" className="text-sm md:text-base px-6 md:px-8 py-3 md:py-4">
-              Book My Free Call Now <Zap className="ml-2 md:ml-3" fill="white" aria-hidden="true" size={18} />
+            <AuroraButton ariaLabel="Schedule your free consultation" className="text-sm md:text-base px-6 md:px-8 py-3 md:py-4">
+              Schedule Free Consultation <Zap className="ml-2 md:ml-3" fill="white" aria-hidden="true" size={18} />
             </AuroraButton>
           </div>
         </div>
