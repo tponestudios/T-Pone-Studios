@@ -195,13 +195,13 @@ const Features: React.FC = () => {
     },
     {
       id: "3",
-      name: "Engagement",
-      title: "Convert Website Visitors",
-      description: "High-performance websites designed specifically for lead generation and optimized for mobile users.",
+      name: "Experience",
+      title: "Captivate Every Visitor",
+      description: "High-performance websites engineered to hold attention and look flawless on every device.",
       bullets: [
-        "Professional website design for local businesses",
-        "Mobile-responsive landing pages",
-        "Clear call-to-action placement"
+        "Conversion-First Design that guides visitors to the sale",
+        "Lightning-Fast Mobile Pages that load instantly",
+        "Professional Branding that builds immediate trust"
       ]
     },
     {
