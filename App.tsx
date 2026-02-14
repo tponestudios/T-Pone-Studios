@@ -241,18 +241,18 @@ const Features: React.FC = () => {
   };
 
   return (
-    <section id="services" className="py-32 bg-[#020617] relative overflow-hidden">
+    <section id="services" className="py-16 md:py-32 bg-[#020617] relative overflow-hidden">
       {/* Top transition overlay - Blends from the hero section */}
-      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-[#020617] to-transparent z-10" />
+      <div className="absolute top-0 left-0 right-0 h-24 md:h-48 bg-gradient-to-b from-[#020617] to-transparent z-10" />
 
       {/* Enhanced Aurora Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#8D53FF]/20 via-[#020617] to-[#020617] pointer-events-none"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[#8D53FF]/10 via-[#EC4899]/10 to-[#06B6D4]/10 rounded-full blur-[100px] pointer-events-none opacity-50 animate-pulse"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-gradient-to-r from-[#8D53FF]/10 via-[#EC4899]/10 to-[#06B6D4]/10 rounded-full blur-[60px] md:blur-[100px] pointer-events-none opacity-50 animate-pulse"></div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-12 max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent mb-6 tracking-tight tracking-tight">The Complete Local Growth System</h2>
-          <p className="text-gray-400 text-lg md:text-xl leading-relaxed">The Mechanical Customer Journey: How we turn strangers into paying customers.</p>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center mb-8 md:mb-12 max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-black bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent mb-4 md:mb-6 tracking-tight">The Complete Local Growth System</h2>
+          <p className="text-gray-400 text-sm md:text-lg leading-relaxed px-2">The Mechanical Customer Journey: How we turn strangers into paying customers.</p>
         </div>
 
         <FeatureCarousel
@@ -266,69 +266,69 @@ const Features: React.FC = () => {
 
 const Reporting: React.FC = () => {
   return (
-    <section id="process" className="py-32 bg-gray-950 overflow-hidden relative border-t border-white/5">
+    <section id="process" className="py-16 md:py-32 bg-gray-950 overflow-hidden relative border-t border-white/5">
       <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-[#06B6D4]/10 via-transparent to-transparent pointer-events-none blur-3xl"></div>
-      <div className="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-20">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col md:flex-row items-center gap-10 md:gap-20">
         <div className="md:w-1/2">
-          <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent mb-8 leading-[1.1] tracking-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-black bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent mb-4 md:mb-8 leading-[1.1] tracking-tight">
             Results You Can <span className="bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent">Actually See.</span>
           </h2>
-          <p className="text-xl text-gray-400 mb-10 leading-relaxed font-medium">
+          <p className="text-base md:text-xl text-gray-400 mb-6 md:mb-10 leading-relaxed font-medium">
             No confusing jargon. We send you a simple weekly report showing exactly how many new leads and calls we generated for you.
           </p>
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             {[
               { title: "Weekly Lead Dashboards", desc: "See your ROI in real-time." },
               { title: "Call Tracking", desc: "Know exactly which ads are ringing your phone." },
               { title: "Review Insights", desc: "Monitor your local reputation effortlessly." }
             ].map((item, i) => (
-              <div key={i} className="flex group p-4 rounded-2xl hover:bg-white/5 transition-colors duration-300 border border-transparent hover:border-white/5">
-                <div className="flex-shrink-0 mt-1 mr-4 bg-[#8D53FF]/20 p-2.5 rounded-xl group-hover:bg-[#8D53FF] transition-all duration-300 shadow-[0_0_15px_rgba(141,83,255,0.2)]">
-                  <CheckCircle2 size={24} className="text-[#8D53FF] group-hover:text-white" />
+              <div key={i} className="flex group p-3 md:p-4 rounded-xl md:rounded-2xl hover:bg-white/5 transition-colors duration-300 border border-transparent hover:border-white/5">
+                <div className="flex-shrink-0 mt-1 mr-3 md:mr-4 bg-[#8D53FF]/20 p-2 md:p-2.5 rounded-lg md:rounded-xl group-hover:bg-[#8D53FF] transition-all duration-300 shadow-[0_0_15px_rgba(141,83,255,0.2)]">
+                  <CheckCircle2 size={20} className="text-[#8D53FF] group-hover:text-white md:size-24" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-xl mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300">{item.title}</h4>
-                  <p className="text-gray-500 text-lg group-hover:text-gray-400 transition-colors">{item.desc}</p>
+                  <h4 className="text-white font-bold text-base md:text-xl mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300">{item.title}</h4>
+                  <p className="text-gray-500 text-sm md:text-lg group-hover:text-gray-400 transition-colors">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="md:w-1/2 relative group perspective-1000">
+        <div className="md:w-1/2 relative group perspective-1000 mt-8 md:mt-0">
           <div className="absolute -inset-4 bg-gradient-to-r from-[#8D53FF]/20 via-[#EC4899]/20 to-[#06B6D4]/20 blur-3xl -z-10 group-hover:opacity-80 transition-opacity duration-700 opacity-50"></div>
-          <div className="bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden transition-all duration-700 transform group-hover:scale-[1.02] group-hover:rotate-1">
-            <div className="flex items-center justify-between mb-10">
+          <div className="bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-[2.5rem] p-4 md:p-8 shadow-2xl relative overflow-hidden transition-all duration-700 transform group-hover:scale-[1.02] group-hover:rotate-1">
+            <div className="flex items-center justify-between mb-6 md:mb-10">
               <div className="flex space-x-2">
                 <div className="w-3 h-3 rounded-full bg-[#EC4899]/40"></div>
                 <div className="w-3 h-3 rounded-full bg-[#8D53FF]/40"></div>
                 <div className="w-3 h-3 rounded-full bg-[#06B6D4]/40"></div>
               </div>
-              <div className="text-xs text-white/30 font-bold tracking-[0.2em] uppercase flex items-center gap-2">
-                <Sparkles size={12} className="text-[#EC4899]" />
+              <div className="text-[10px] md:text-xs text-white/30 font-bold tracking-[0.2em] uppercase flex items-center gap-1 md:gap-2">
+                <Sparkles size={10} className="text-[#EC4899] md:size-12" />
                 Weekly Performance
               </div>
             </div>
 
-            <div className="space-y-10">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-black/40 p-6 rounded-3xl border border-white/5 hover:border-[#8D53FF]/30 transition-colors duration-300">
-                  <p className="text-gray-500 text-xs font-bold uppercase mb-2 tracking-wider">New Leads</p>
-                  <p className="text-4xl font-black text-white">+58</p>
-                  <div className="w-full h-1.5 bg-gray-800 mt-4 rounded-full overflow-hidden">
+            <div className="space-y-6 md:space-y-10">
+              <div className="grid grid-cols-2 gap-3 md:gap-6">
+                <div className="bg-black/40 p-3 md:p-6 rounded-xl md:rounded-3xl border border-white/5 hover:border-[#8D53FF]/30 transition-colors duration-300">
+                  <p className="text-gray-500 text-[10px] md:text-xs font-bold uppercase mb-1 md:mb-2 tracking-wider">New Leads</p>
+                  <p className="text-2xl md:text-4xl font-black text-white">+58</p>
+                  <div className="w-full h-1 md:h-1.5 bg-gray-800 mt-2 md:mt-4 rounded-full overflow-hidden">
                     <div className="w-4/5 h-full bg-gradient-to-r from-[#8D53FF] to-[#EC4899] rounded-full shadow-[0_0_10px_rgba(236,72,153,0.5)]"></div>
                   </div>
                 </div>
-                <div className="bg-black/40 p-6 rounded-3xl border border-white/5 hover:border-[#06B6D4]/30 transition-colors duration-300">
-                  <p className="text-gray-500 text-xs font-bold uppercase mb-2 tracking-wider">Google Calls</p>
-                  <p className="text-4xl font-black text-white">+24</p>
-                  <div className="w-full h-1.5 bg-gray-800 mt-4 rounded-full overflow-hidden">
+                <div className="bg-black/40 p-3 md:p-6 rounded-xl md:rounded-3xl border border-white/5 hover:border-[#06B6D4]/30 transition-colors duration-300">
+                  <p className="text-gray-500 text-[10px] md:text-xs font-bold uppercase mb-1 md:mb-2 tracking-wider">Google Calls</p>
+                  <p className="text-2xl md:text-4xl font-black text-white">+24</p>
+                  <div className="w-full h-1 md:h-1.5 bg-gray-800 mt-2 md:mt-4 rounded-full overflow-hidden">
                     <div className="w-2/3 h-full bg-gradient-to-r from-[#06B6D4] to-[#13FFAA] rounded-full shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
                   </div>
                 </div>
               </div>
 
-              <div className="h-48 w-full flex items-end justify-between px-4 gap-3 bg-black/20 p-6 rounded-3xl border border-white/5 relative overflow-hidden">
+              <div className="h-32 md:h-48 w-full flex items-end justify-between px-2 md:px-4 gap-2 md:gap-3 bg-black/20 p-3 md:p-6 rounded-xl md:rounded-3xl border border-white/5 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#8D53FF]/5 pointer-events-none"></div>
                 {[30, 50, 40, 80, 60, 95, 100].map((h, i) => (
                   <div key={i} className="flex-1 bg-gradient-to-t from-[#8D53FF] via-[#EC4899] to-[#06B6D4] rounded-t-lg transition-all duration-1000 group-hover:opacity-100 shadow-[0_0_15px_rgba(141,83,255,0.3)]" style={{ height: `${h}%`, opacity: 0.7 }}></div>
@@ -373,47 +373,47 @@ const Testimonials: React.FC = () => {
   }, [testimonials.length]);
 
   return (
-    <section id="testimonials" className="py-32 bg-gray-950 relative overflow-hidden border-t border-white/5">
+    <section id="testimonials" className="py-16 md:py-32 bg-gray-950 relative overflow-hidden border-t border-white/5">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#8D53FF]/20 to-transparent"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-[#EC4899]/5 via-transparent to-transparent pointer-events-none"></div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent mb-6 tracking-tight italic uppercase">Trusted by Local Giants</h2>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center mb-10 md:mb-20">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-black bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent mb-4 md:mb-6 tracking-tight italic uppercase">Trusted by Local Giants</h2>
           <div className="flex justify-center space-x-2">
             {[0, 1, 2].map(i => (
-              <div key={i} className={`h-1.5 rounded-full transition-all duration-500 ${activeIndex === i ? 'w-12 bg-gradient-to-r from-[#8D53FF] to-[#EC4899]' : 'w-4 bg-gray-800'}`}></div>
+              <div key={i} className={`h-1.5 rounded-full transition-all duration-500 ${activeIndex === i ? 'w-8 md:w-12 bg-gradient-to-r from-[#8D53FF] to-[#EC4899]' : 'w-3 md:w-4 bg-gray-800'}`}></div>
             ))}
           </div>
         </div>
 
-        <div className="relative max-w-5xl mx-auto min-h-[400px]">
+        <div className="relative max-w-5xl mx-auto min-h-[300px] md:min-h-[400px]">
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className={`absolute inset-0 transition-all duration-1000 ease-in-out transform flex flex-col md:flex-row items-center gap-12 ${idx === activeIndex ? 'opacity-100 translate-x-0 scale-100 pointer-events-auto' : 'opacity-0 translate-x-10 scale-95 pointer-events-none'
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out transform flex flex-col md:flex-row items-center gap-6 md:gap-12 ${idx === activeIndex ? 'opacity-100 translate-x-0 scale-100 pointer-events-auto' : 'opacity-0 translate-x-10 scale-95 pointer-events-none'
                 }`}
             >
               <div className="md:w-1/3 flex justify-center">
                 <div className="relative group">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-[#8D53FF] to-[#EC4899] rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                  <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-[#8D53FF] to-[#EC4899] rounded-full blur-xl md:blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
                   <img
                     src={t.img}
                     alt={`${t.name}, ${t.business} - T-Pone Studios client testimonial`}
-                    className="w-48 h-48 md:w-64 md:h-64 rounded-[3rem] object-cover border-4 border-zinc-900 shadow-2xl relative z-10"
+                    className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-[2rem] md:rounded-[3rem] object-cover border-4 border-zinc-900 shadow-2xl relative z-10"
                     loading="lazy"
                   />
                 </div>
               </div>
               <div className="md:w-2/3 text-center md:text-left">
-                <div className="flex justify-center md:justify-start mb-6">
-                  {[1, 2, 3, 4, 5].map(s => <Star key={s} fill="#8D53FF" size={24} className="text-[#8D53FF] mr-1" />)}
+                <div className="flex justify-center md:justify-start mb-4 md:mb-6">
+                  {[1, 2, 3, 4, 5].map(s => <Star key={s} fill="#8D53FF" size={18} className="text-[#8D53FF] mr-0.5 md:mr-1" />)}
                 </div>
-                <p className="text-2xl md:text-4xl font-medium text-white italic mb-10 leading-snug">"{t.quote}"</p>
+                <p className="text-base md:text-2xl lg:text-4xl font-medium text-white italic mb-6 md:mb-10 leading-snug">"{t.quote}"</p>
                 <div>
-                  <h4 className="text-2xl font-black text-white tracking-tight">{t.name}</h4>
-                  <p className="bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent text-lg font-bold tracking-wider uppercase">{t.business}</p>
+                  <h4 className="text-xl md:text-2xl font-black text-white tracking-tight">{t.name}</h4>
+                  <p className="bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent text-sm md:text-lg font-bold tracking-wider uppercase">{t.business}</p>
                 </div>
               </div>
             </div>
@@ -426,27 +426,27 @@ const Testimonials: React.FC = () => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-950 pt-32 pb-12 relative overflow-hidden border-t border-white/5">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-32">
-          <h2 className="text-5xl md:text-8xl font-black bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent mb-10 leading-[1.05] tracking-tighter">
+    <footer className="bg-gray-950 pt-16 md:pt-32 pb-8 md:pb-12 relative overflow-hidden border-t border-white/5">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center mb-16 md:mb-32">
+          <h2 className="text-3xl md:text-5xl lg:text-8xl font-black bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent mb-6 md:mb-10 leading-[1.05] tracking-tighter">
             Ready to <span className="bg-gradient-to-r from-[#8D53FF] via-[#EC4899] to-[#06B6D4] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(141,83,255,0.4)]">Dominate?</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
+          <p className="text-base md:text-xl text-gray-400 mb-8 md:mb-12 max-w-2xl mx-auto font-medium leading-relaxed px-2">
             Let's build your growth plan today. Schedule your free 15-minute strategy call with our team.
           </p>
-          <div className="flex justify-center">
-            <AuroraButton ariaLabel="Book my free strategy call now">
-              Book My Free Call Now <Zap className="ml-3" fill="white" aria-hidden="true" />
+          <div className="flex justify-center px-4">
+            <AuroraButton ariaLabel="Book my free strategy call now" className="text-sm md:text-base px-6 md:px-8 py-3 md:py-4">
+              Book My Free Call Now <Zap className="ml-2 md:ml-3" fill="white" aria-hidden="true" size={18} />
             </AuroraButton>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-16 border-t border-white/10">
-          <div className="text-3xl font-black tracking-tighter text-white mb-8 md:mb-0">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 md:pt-16 border-t border-white/10">
+          <div className="text-xl md:text-3xl font-black tracking-tighter text-white mb-6 md:mb-0">
             T-PONE <span className="bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent">STUDIOS</span>
           </div>
-          <div className="flex flex-wrap justify-center gap-10 text-gray-500 text-sm font-bold tracking-widest uppercase">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-gray-500 text-xs md:text-sm font-bold tracking-widest uppercase">
             <a href="#" className="hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8D53FF] rounded-sm" aria-label="Follow us on Instagram">Instagram</a>
             <a href="#" className="hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8D53FF] rounded-sm" aria-label="Connect with us on LinkedIn">LinkedIn</a>
             <a href="#" className="hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8D53FF] rounded-sm" aria-label="Read our privacy policy">Privacy</a>

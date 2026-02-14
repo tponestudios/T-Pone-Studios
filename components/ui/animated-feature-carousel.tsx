@@ -238,18 +238,18 @@ function FeatureCard({
         >
             {/* T-Pone Style: Dark glass background with border glow */}
             <div className="relative w-full overflow-hidden rounded-3xl border border-white/10 bg-gray-900/40 backdrop-blur-md transition-colors duration-300">
-                <div className="m-10 min-h-[450px] w-full">
+                <div className="m-4 md:m-10 min-h-[350px] md:min-h-[450px] w-full">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={step}
-                            className="flex w-full flex-col gap-4 md:w-[45%] relative z-20"
+                            className="flex w-full flex-col gap-3 md:gap-4 relative z-20"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                         >
                             <motion.div
-                                className="text-sm font-bold uppercase tracking-wider bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent"
+                                className="text-xs md:text-sm font-bold uppercase tracking-wider bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent"
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{
@@ -261,7 +261,7 @@ function FeatureCard({
                                 {steps[step].name}
                             </motion.div>
                             <motion.h2
-                                className="text-2xl font-bold tracking-tight text-white md:text-3xl"
+                                className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-white"
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{
@@ -281,14 +281,14 @@ function FeatureCard({
                                     ease: [0.22, 1, 0.36, 1],
                                 }}
                             >
-                                <p className="text-base leading-relaxed text-gray-400 mb-4">
+                                <p className="text-sm md:text-base leading-relaxed text-gray-400 mb-3 md:mb-4">
                                     {steps[step].description}
                                 </p>
                                 {steps[step].bullets && (
-                                    <ul className="space-y-3">
+                                    <ul className="space-y-2 md:space-y-3">
                                         {steps[step].bullets.map((bullet, idx) => (
-                                            <li key={idx} className="flex items-start text-gray-300 text-base leading-relaxed">
-                                                <span className="mr-3 text-[#8D53FF] font-bold text-lg">•</span>
+                                            <li key={idx} className="flex items-start text-gray-300 text-sm md:text-base leading-relaxed">
+                                                <span className="mr-2 md:mr-3 text-[#8D53FF] font-bold text-base md:text-lg">•</span>
                                                 {bullet}
                                             </li>
                                         ))}
@@ -372,13 +372,13 @@ function StepsNav({
 // T-Pone Default positioning (prevents overlap)
 const defaultClasses = {
     img: "rounded-xl border border-white/10 shadow-2xl shadow-black/50 absolute object-cover",
-    step1img1: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl",
-    step1img2: "w-[45%] left-[65%] top-[35%] z-20",
-    step2img1: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl",
-    step2img2: "w-[40%] left-[60%] top-[45%] z-20",
-    step3img: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl",
-    step4img: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl",
-    step5img: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl",
+    step1img1: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl md:block hidden",
+    step1img2: "w-[45%] left-[65%] top-[35%] z-20 md:block hidden",
+    step2img1: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl md:block hidden",
+    step2img2: "w-[40%] left-[60%] top-[45%] z-20 md:block hidden",
+    step3img: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl md:block hidden",
+    step4img: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl md:block hidden",
+    step5img: "w-[45%] left-[50%] top-[25%] z-10 shadow-xl md:block hidden",
 } as const;
 
 export function FeatureCarousel({
@@ -449,13 +449,13 @@ export function FeatureCarousel({
     };
 
     return (
-        <div className="flex flex-col gap-12 w-full max-w-5xl mx-auto p-4">
+        <div className="flex flex-col gap-8 md:gap-12 w-full max-w-5xl mx-auto px-2 md:p-4">
             <FeatureCard {...props} step={step} steps={steps}>
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={step}
                         {...ANIMATION_PRESETS.fadeInScale}
-                        className="w-full h-full absolute top-0 left-0"
+                        className="w-full h-full absolute top-0 left-0 hidden md:block"
                     >
                         {renderStepContent()}
                     </motion.div>
