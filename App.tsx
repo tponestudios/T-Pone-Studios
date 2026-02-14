@@ -415,7 +415,7 @@ const Testimonials: React.FC = () => {
         </div>
 
         {/* Navigation Arrows */}
-        <div className="flex justify-center items-center gap-6 mt-8">
+        <div className="flex justify-center items-center gap-6 mt-16 md:mt-20">
           <button 
             onClick={goToPrev}
             className="p-3 rounded-full border border-white/10 bg-gray-900/50 text-white/60 hover:text-white hover:border-[#8D53FF]/50 hover:bg-gray-800 transition-all duration-300"
