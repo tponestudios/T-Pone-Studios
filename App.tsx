@@ -438,40 +438,26 @@ const Testimonials: React.FC = () => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-950 pt-16 md:pt-32 pb-8 md:pb-12 relative overflow-hidden border-t border-white/5">
+    <footer className="bg-gray-950 py-20 md:py-32 relative overflow-hidden border-t border-white/5">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-16 md:mb-32">
-          <h2 className="text-3xl md:text-5xl lg:text-8xl font-black bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent mb-6 md:mb-10 leading-[1.05] tracking-tighter">
-            Ready to <span className="bg-gradient-to-r from-[#8D53FF] via-[#EC4899] to-[#06B6D4] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(141,83,255,0.4)]">Scale?</span>
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent mb-6 md:mb-8 leading-tight tracking-tight">
+            Ready to <span className="bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent">Scale?</span>
           </h2>
-          <p className="text-base md:text-xl text-gray-400 mb-8 md:mb-12 max-w-2xl mx-auto font-medium leading-relaxed px-2">
-            Schedule a complimentary strategy session to discuss how we can accelerate your business growth.
+          <p className="text-base md:text-lg text-gray-400 mb-10 md:mb-12 max-w-xl mx-auto leading-relaxed">
+            Let's discuss how we can accelerate your business growth with a professional online presence.
           </p>
-          <div className="flex justify-center px-4">
-            <AuroraButton ariaLabel="Schedule your free consultation" className="text-sm md:text-base px-6 md:px-8 py-3 md:py-4">
-              Schedule Free Consultation <Zap className="ml-2 md:ml-3" fill="white" aria-hidden="true" size={18} />
-            </AuroraButton>
-          </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 md:pt-16 border-t border-white/10">
-          <div className="text-xl md:text-3xl font-black tracking-tighter text-white mb-6 md:mb-0">
-            T-PONE <span className="bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent">STUDIOS</span>
-          </div>
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10 text-gray-500 text-xs md:text-sm font-bold tracking-widest uppercase">
-            <a href="#" className="hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8D53FF] rounded-sm" aria-label="Follow us on Instagram">Instagram</a>
-            <a href="#" className="hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8D53FF] rounded-sm" aria-label="Connect with us on LinkedIn">LinkedIn</a>
-            <a href="#" className="hover:text-white transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8D53FF] rounded-sm" aria-label="Read our privacy policy">Privacy</a>
-            <span>&copy; {new Date().getFullYear()} T-Pone Studios</span>
-          </div>
+          <AuroraButton ariaLabel="Schedule your free consultation" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5">
+            Schedule Free Consultation <Zap className="ml-3" fill="white" aria-hidden="true" size={18} />
+          </AuroraButton>
         </div>
       </div>
 
-        {/* Decorative gradient for footer */}
+      {/* Decorative gradient */}
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#8D53FF]/10 via-[#06B6D4]/5 to-transparent -z-10 pointer-events-none"></div>
       
       {/* Attribution */}
-      <div className="absolute bottom-2 right-4 text-[8px] text-gray-600 opacity-30 hover:opacity-60 transition-opacity">
+      <div className="absolute bottom-4 right-4 text-[8px] text-gray-600 opacity-30 hover:opacity-60 transition-opacity">
         Sparkle icon by Icons8
       </div>
     </footer>
