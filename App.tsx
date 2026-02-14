@@ -269,68 +269,65 @@ const Reporting: React.FC = () => {
       <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-[#06B6D4]/10 via-transparent to-transparent pointer-events-none blur-3xl"></div>
       <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col md:flex-row items-center gap-10 md:gap-20">
         <div className="md:w-1/2">
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-black bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent mb-4 md:mb-8 leading-[1.1] tracking-tight">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-black bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent mb-4 md:mb-6 leading-[1.1] tracking-tight">
             Transparent <span className="bg-gradient-to-r from-[#8D53FF] to-[#EC4899] bg-clip-text text-transparent">Performance Reporting</span>
           </h2>
-          <p className="text-base md:text-xl text-gray-400 mb-6 md:mb-10 leading-relaxed font-medium">
+          <p className="text-base md:text-xl text-gray-400 mb-8 md:mb-12 leading-relaxed">
             Clear, actionable analytics that show exactly how your marketing investment translates into measurable business growth.
           </p>
-          <div className="space-y-4 md:space-y-6">
+          <div className="space-y-5">
             {[
               { title: "Real-Time Lead Tracking", desc: "Monitor new inquiries and conversions as they happen." },
               { title: "Call Attribution Analytics", desc: "Identify which campaigns drive actual phone calls." },
               { title: "Reputation Monitoring", desc: "Track and manage your online reviews across platforms." }
             ].map((item, i) => (
-              <div key={i} className="flex group p-3 md:p-4 rounded-xl md:rounded-2xl hover:bg-white/5 transition-colors duration-300 border border-transparent hover:border-white/5">
-                <div className="flex-shrink-0 mt-1 mr-3 md:mr-4 bg-[#8D53FF]/20 p-2 md:p-2.5 rounded-lg md:rounded-xl group-hover:bg-[#8D53FF] transition-all duration-300 shadow-[0_0_15px_rgba(141,83,255,0.2)]">
-                  <CheckCircle2 size={20} className="text-[#8D53FF] group-hover:text-white md:size-24" />
+              <div key={i} className="flex items-start gap-4">
+                <div className="flex-shrink-0 mt-0.5">
+                  <CheckCircle2 size={22} className="text-[#8D53FF]" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-base md:text-xl mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300">{item.title}</h4>
-                  <p className="text-gray-500 text-sm md:text-lg group-hover:text-gray-400 transition-colors">{item.desc}</p>
+                  <h4 className="text-white font-semibold text-base md:text-lg mb-1">{item.title}</h4>
+                  <p className="text-gray-500 text-sm md:text-base">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="md:w-1/2 relative group perspective-1000 mt-8 md:mt-0">
-          <div className="absolute -inset-4 bg-gradient-to-r from-[#8D53FF]/20 via-[#EC4899]/20 to-[#06B6D4]/20 blur-3xl -z-10 group-hover:opacity-80 transition-opacity duration-700 opacity-50"></div>
-          <div className="bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-[2.5rem] p-4 md:p-8 shadow-2xl relative overflow-hidden transition-all duration-700 transform group-hover:scale-[1.02] group-hover:rotate-1">
-            <div className="flex items-center justify-between mb-6 md:mb-10">
+        <div className="md:w-1/2 relative mt-8 md:mt-0">
+          <div className="bg-gray-900/60 backdrop-blur-xl border border-white/5 rounded-3xl p-6 md:p-10 shadow-2xl">
+            <div className="flex items-center justify-between mb-8">
               <div className="flex space-x-2">
-                <div className="w-3 h-3 rounded-full bg-[#EC4899]/40"></div>
-                <div className="w-3 h-3 rounded-full bg-[#8D53FF]/40"></div>
-                <div className="w-3 h-3 rounded-full bg-[#06B6D4]/40"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-[#EC4899]"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-[#8D53FF]"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-[#06B6D4]"></div>
               </div>
-              <div className="text-[10px] md:text-xs text-white/30 font-bold tracking-[0.2em] uppercase flex items-center gap-1 md:gap-2">
-                <Sparkles size={10} className="text-[#EC4899] md:size-12" />
-                Performance Analytics
+              <div className="text-xs text-gray-500 font-medium tracking-wider uppercase">
+                Analytics
               </div>
             </div>
 
-            <div className="space-y-6 md:space-y-10">
-              <div className="grid grid-cols-2 gap-3 md:gap-6">
-                <div className="bg-black/40 p-3 md:p-6 rounded-xl md:rounded-3xl border border-white/5 hover:border-[#8D53FF]/30 transition-colors duration-300">
-                  <p className="text-gray-500 text-[10px] md:text-xs font-bold uppercase mb-1 md:mb-2 tracking-wider">Qualified Leads</p>
-                  <p className="text-2xl md:text-4xl font-black text-white">+58</p>
-                  <div className="w-full h-1 md:h-1.5 bg-gray-800 mt-2 md:mt-4 rounded-full overflow-hidden">
-                    <div className="w-4/5 h-full bg-gradient-to-r from-[#8D53FF] to-[#EC4899] rounded-full shadow-[0_0_10px_rgba(236,72,153,0.5)]"></div>
+            <div className="space-y-8">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 md:p-5 rounded-2xl">
+                  <p className="text-gray-500 text-xs font-medium uppercase mb-2 tracking-wide">Qualified Leads</p>
+                  <p className="text-3xl md:text-4xl font-bold text-white">+58</p>
+                  <div className="w-full h-1 bg-gray-800 mt-3 rounded-full overflow-hidden">
+                    <div className="w-4/5 h-full bg-gradient-to-r from-[#8D53FF] to-[#EC4899] rounded-full"></div>
                   </div>
                 </div>
-                <div className="bg-black/40 p-3 md:p-6 rounded-xl md:rounded-3xl border border-white/5 hover:border-[#06B6D4]/30 transition-colors duration-300">
-                  <p className="text-gray-500 text-[10px] md:text-xs font-bold uppercase mb-1 md:mb-2 tracking-wider">Phone Inquiries</p>
-                  <p className="text-2xl md:text-4xl font-black text-white">+24</p>
-                  <div className="w-full h-1 md:h-1.5 bg-gray-800 mt-2 md:mt-4 rounded-full overflow-hidden">
-                    <div className="w-2/3 h-full bg-gradient-to-r from-[#06B6D4] to-[#13FFAA] rounded-full shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+                <div className="p-4 md:p-5 rounded-2xl">
+                  <p className="text-gray-500 text-xs font-medium uppercase mb-2 tracking-wide">Phone Inquiries</p>
+                  <p className="text-3xl md:text-4xl font-bold text-white">+24</p>
+                  <div className="w-full h-1 bg-gray-800 mt-3 rounded-full overflow-hidden">
+                    <div className="w-2/3 h-full bg-gradient-to-r from-[#06B6D4] to-[#13FFAA] rounded-full"></div>
                   </div>
                 </div>
               </div>
 
-              <div className="h-32 md:h-48 w-full flex items-end justify-between px-2 md:px-4 gap-2 md:gap-3 bg-black/20 p-3 md:p-6 rounded-xl md:rounded-3xl border border-white/5 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#8D53FF]/5 pointer-events-none"></div>
+              <div className="h-36 md:h-44 w-full flex items-end justify-between gap-2 bg-gray-950/50 p-4 rounded-2xl">
                 {[30, 50, 40, 80, 60, 95, 100].map((h, i) => (
-                  <div key={i} className="flex-1 bg-gradient-to-t from-[#8D53FF] via-[#EC4899] to-[#06B6D4] rounded-t-lg transition-all duration-1000 group-hover:opacity-100 shadow-[0_0_15px_rgba(141,83,255,0.3)]" style={{ height: `${h}%`, opacity: 0.7 }}></div>
+                  <div key={i} className="flex-1 bg-gradient-to-t from-[#8D53FF] via-[#EC4899] to-[#06B6D4] rounded-t-md" style={{ height: `${h}%`, opacity: 0.8 }}></div>
                 ))}
               </div>
             </div>
