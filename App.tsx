@@ -65,8 +65,8 @@ const Navbar: React.FC = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8D53FF] transition-all duration-200 group-hover:w-full"></span>
             </a>
           ))}
-          <AuroraButton ariaLabel="Get your free marketing plan" className="text-sm px-6 py-2.5">
-            Get Your Free Plan
+          <AuroraButton ariaLabel="Schedule free consultation" className="text-sm px-6 py-2.5">
+            Free Consultation
           </AuroraButton>
         </div>
 
@@ -93,7 +93,7 @@ const Navbar: React.FC = () => {
             </a>
           ))}
           <button className="bg-[#8D53FF] text-white w-full py-5 rounded-2xl font-bold text-xl shadow-lg">
-            Get Your Free Plan
+            Free Consultation
           </button>
         </div>
       </div>
@@ -520,7 +520,7 @@ const StickyCTA: React.FC = () => {
           aria-label="Get your free marketing plan"
         >
           <Zap size={16} fill="white" className="text-white" />
-          <span className="text-sm font-semibold whitespace-nowrap">Get Free Plan</span>
+          <span className="text-sm font-semibold whitespace-nowrap">Free Consultation</span>
         </button>
       </div>
     </div>
