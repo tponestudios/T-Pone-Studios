@@ -445,7 +445,7 @@ const Footer: React.FC = () => {
             Ready to <span className="bg-gradient-to-r from-[#8D53FF] via-[#EC4899] to-[#06B6D4] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(141,83,255,0.4)]">Scale?</span>
           </h2>
           <p className="text-base md:text-xl text-gray-400 mb-8 md:mb-12 max-w-2xl mx-auto font-medium leading-relaxed px-2">
-            Schedule a strategy session to discuss how we can accelerate your business growth.
+            Schedule a free strategy session to discuss how we can accelerate your business growth.
           </p>
           <div className="flex justify-center px-4">
             <AuroraButton ariaLabel="Schedule your free consultation" className="text-sm md:text-base px-6 md:px-8 py-3 md:py-4">
