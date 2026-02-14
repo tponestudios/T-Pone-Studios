@@ -342,15 +342,15 @@ const Testimonials: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const testimonials: Testimonial[] = [
     {
-      name: "Dr. Sarah Miller",
-      business: "Miller Family Dental",
-      quote: "T-Pone Studios helped us increase new patient appointments by 300% in 90 days. Their transparent reporting shows exactly which marketing channels deliver results.",
+      name: "Coach Frank S.",
+      business: "Head Trainer & Founder - Elevate Your Game",
+      quote: "T-Pone Studios transformed my online presence! My website looks professional, runs smoothly, and is bringing in more customers and revenue. They took my vision and made it a reality. Highly recommend!",
       img: ""
     },
     {
-      name: "Mark Henderson",
-      business: "Henderson HVAC Services",
-      quote: "Finally, a marketing agency that focuses on actual results. T-Pone consistently delivers qualified leads that convert into service calls. Our calendar stays booked.",
+      name: "Coach Shane S.",
+      business: "Founder & Head Coach - Primetime Performance",
+      quote: "Working with T-Pone Studios was a game changer! My site looks polished, runs flawlessly, and is already helping me attract more business. They really listened to what I wanted and delivered beyond expectations.",
       img: ""
     }
   ];
