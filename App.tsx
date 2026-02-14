@@ -221,9 +221,9 @@ const Features: React.FC = () => {
       title: "Capture Lost Traffic",
       description: "Smart retargeting systems that follow website visitors across the internet and bring them back to book.",
       bullets: [
-        "Cross-Platform Retargeting to stay visible on Google and Facebook",
+        "Cross-Platform Retargeting on Google and Facebook",
         "Strategic Follow-Up Ads that remind visitors to call you",
-        "Audience Segmentation to show the right ad to the right person"
+        "Audience Segmentation to show the perfect ad"
       ]
     }
   ];
