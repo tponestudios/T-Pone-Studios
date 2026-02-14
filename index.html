@@ -1,60 +1,101 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>T-Pone Studios | Elite Local Marketing Growth</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --primary: #8D53FF;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T-Pone Studios | Elite Local Marketing Growth & Web Design</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="T-Pone Studios builds high-converting websites and drives instant traffic with Google Ads & SEO. Stop losing local customers to competitors. Get your free marketing plan today." />
+  <meta name="keywords"
+    content="web design, digital marketing, Google Ads, SEO, local marketing, lead generation, website development, marketing agency" />
+  <meta name="author" content="T-Pone Studios" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="T-Pone Studios | Elite Local Marketing Growth" />
+  <meta property="og:description"
+    content="We build high-converting websites and drive instant traffic with Google Ads & SEO. Turn your website into your best salesperson." />
+  <meta property="og:site_name" content="T-Pone Studios" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="T-Pone Studios | Elite Local Marketing Growth" />
+  <meta name="twitter:description"
+    content="We build high-converting websites and drive instant traffic with Google Ads & SEO." />
+
+  <!-- Favicon (placeholder - add actual favicon later) -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --primary: #8D53FF;
+    }
+
+    * {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #000000;
+      color: #FFFFFF;
+      overflow-x: hidden;
+    }
+
+    /* Custom selection color */
+    ::selection {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* Hide scrollbar but keep functionality if desired */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1a1a1a;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #222;
+    }
+
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+
+    /* Accessibility: Respect prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
-      * {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: #000000;
-        color: #FFFFFF;
-        overflow-x: hidden;
-      }
-      /* Custom selection color */
-      ::selection {
-        background-color: var(--primary);
-        color: white;
-      }
-      /* Hide scrollbar but keep functionality if desired */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #000;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #1a1a1a;
-        border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #222;
-      }
-      .perspective-1000 {
-        perspective: 1000px;
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.564.0"
-  }
-}
-</script>
+    }
+  </style>
+
 </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
