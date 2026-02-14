@@ -217,13 +217,13 @@ const Features: React.FC = () => {
     },
     {
       id: "5",
-      name: "Retention",
-      title: "Maximize Customer Value",
-      description: "Retargeting strategies that keep your business visible to prospects until they're ready to purchase.",
+      name: "Recovery",
+      title: "Capture Lost Traffic",
+      description: "Smart retargeting systems that follow website visitors across the internet and bring them back to book.",
       bullets: [
-        "Retargeting ad campaigns",
-        "Email marketing for service businesses",
-        "Customer relationship management"
+        "Cross-Platform Retargeting to stay visible on Google and Facebook",
+        "Strategic Follow-Up Ads that remind visitors to call you",
+        "Audience Segmentation to show the right ad to the right person"
       ]
     }
   ];
