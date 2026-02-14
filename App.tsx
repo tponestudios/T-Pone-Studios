@@ -454,8 +454,13 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Decorative gradient for footer */}
+        {/* Decorative gradient for footer */}
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#8D53FF]/10 via-[#06B6D4]/5 to-transparent -z-10 pointer-events-none"></div>
+      
+      {/* Attribution */}
+      <div className="absolute bottom-2 right-4 text-[8px] text-gray-600 opacity-30 hover:opacity-60 transition-opacity">
+        Sparkle icon by Icons8
+      </div>
     </footer>
   );
 };
