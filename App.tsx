@@ -250,7 +250,7 @@ const Features: React.FC = () => {
   };
 
   return (
-    <section id="services" className="py-16 md:py-32 bg-[#020617] relative overflow-hidden">
+    <section id="services" className="py-16 md:py-32 bg-[#020617] relative overflow-hidden scroll-mt-24">
       {/* Top transition overlay - Blends from the hero section */}
       <div className="absolute top-0 left-0 right-0 h-24 md:h-48 bg-gradient-to-b from-[#020617] to-transparent z-10" />
 
@@ -275,7 +275,7 @@ const Features: React.FC = () => {
 
 const Reporting: React.FC = () => {
   return (
-    <section id="process" className="py-16 md:py-32 bg-gray-950 overflow-hidden relative border-t border-white/5">
+    <section id="process" className="py-16 md:py-32 bg-gray-950 overflow-hidden relative border-t border-white/5 scroll-mt-24">
       <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-[#06B6D4]/10 via-transparent to-transparent pointer-events-none blur-3xl"></div>
       <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col md:flex-row items-center gap-10 md:gap-20">
         <div className="md:w-1/2">
@@ -374,7 +374,7 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-16 md:py-32 bg-gray-950 relative overflow-hidden border-t border-white/5">
+    <section id="testimonials" className="py-16 md:py-32 bg-gray-950 relative overflow-hidden border-t border-white/5 scroll-mt-24">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#8D53FF]/20 to-transparent"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-[#EC4899]/5 via-transparent to-transparent pointer-events-none"></div>
@@ -425,7 +425,7 @@ const Testimonials: React.FC = () => {
         </div>
 
         {/* Navigation Arrows */}
-        <div className="flex justify-center items-center gap-6 mt-24 md:mt-28">
+        <div className="flex justify-center items-center gap-6 mt-32 md:mt-28">
           <button 
             onClick={goToPrev}
             className="p-3 rounded-full border border-white/10 bg-gray-900/50 text-white/60 hover:text-white hover:border-[#8D53FF]/50 hover:bg-gray-800 transition-all duration-300"
