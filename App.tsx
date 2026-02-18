@@ -65,9 +65,16 @@ const Navbar: React.FC = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8D53FF] transition-all duration-200 group-hover:w-full"></span>
             </a>
           ))}
-          <AuroraButton ariaLabel="Schedule free consultation" className="text-sm px-6 py-2.5">
-            Free Consultation
-          </AuroraButton>
+          <a 
+            href="https://calendly.com/troy-tponestudiosllc/30min" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex"
+          >
+            <AuroraButton ariaLabel="Schedule free consultation" className="text-sm px-6 py-2.5">
+              Free Consultation
+            </AuroraButton>
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -76,25 +83,28 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-black z-40 transition-transform duration-500 ease-in-out md:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="flex flex-col h-full justify-center items-center space-y-8 p-6">
-          <button className="absolute top-6 right-6 text-white" onClick={() => setIsOpen(false)}>
-            <X size={32} />
-          </button>
+      {/* Mobile Menu - Slide down from navbar */}
+      <div className={`fixed top-[72px] left-4 right-4 bg-gray-900/95 backdrop-blur-xl border border-white/10 rounded-2xl z-40 transition-all duration-300 ease-out md:hidden overflow-hidden ${isOpen ? 'opacity-100 translate-y-0 max-h-[400px]' : 'opacity-0 -translate-y-4 max-h-0 pointer-events-none'}`}>
+        <div className="flex flex-col p-6 space-y-4">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-4xl font-bold text-white hover:text-[#8D53FF] transition-colors duration-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8D53FF] rounded-lg"
+              className="text-lg font-semibold text-white hover:text-[#8D53FF] transition-colors duration-200 py-2 border-b border-white/5 last:border-0"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
             </a>
           ))}
-          <button className="bg-[#8D53FF] text-white w-full py-5 rounded-2xl font-bold text-xl shadow-lg">
+          <a 
+            href="https://calendly.com/troy-tponestudiosllc/30min" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-[#8D53FF] to-[#EC4899] text-white w-full py-4 rounded-xl font-bold text-center mt-2"
+            onClick={() => setIsOpen(false)}
+          >
             Free Consultation
-          </button>
+          </a>
         </div>
       </div>
     </nav>
@@ -415,7 +425,7 @@ const Testimonials: React.FC = () => {
         </div>
 
         {/* Navigation Arrows */}
-        <div className="flex justify-center items-center gap-6 mt-16 md:mt-20">
+        <div className="flex justify-center items-center gap-6 mt-24 md:mt-28">
           <button 
             onClick={goToPrev}
             className="p-3 rounded-full border border-white/10 bg-gray-900/50 text-white/60 hover:text-white hover:border-[#8D53FF]/50 hover:bg-gray-800 transition-all duration-300"
@@ -448,9 +458,15 @@ const Footer: React.FC = () => {
             Schedule a free strategy session to discuss how we can accelerate your business growth.
           </p>
           <div className="flex justify-center px-4">
-            <AuroraButton ariaLabel="Schedule your free consultation" className="text-sm md:text-base px-6 md:px-8 py-3 md:py-4">
-              Schedule Free Consultation <Zap className="ml-2 md:ml-3" fill="white" aria-hidden="true" size={18} />
-            </AuroraButton>
+            <a 
+              href="https://calendly.com/troy-tponestudiosllc/30min" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <AuroraButton ariaLabel="Schedule your free consultation" className="text-sm md:text-base px-6 md:px-8 py-3 md:py-4">
+                Schedule Free Consultation <Zap className="ml-2 md:ml-3" fill="white" aria-hidden="true" size={18} />
+              </AuroraButton>
+            </a>
           </div>
         </div>
 
@@ -515,13 +531,16 @@ const StickyCTA: React.FC = () => {
         </button>
         
         {/* Compact floating button */}
-        <button 
-          className="flex items-center gap-2 bg-gradient-to-r from-[#8D53FF] to-[#EC4899] text-white px-5 py-3 rounded-full shadow-[0_4px_20px_rgba(141,83,255,0.3)] hover:shadow-[0_6px_30px_rgba(141,83,255,0.5)] transition-all duration-300 hover:scale-105 group-hover:opacity-100"
-          aria-label="Get your free marketing plan"
+        <a 
+          href="https://calendly.com/troy-tponestudiosllc/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-gradient-to-r from-[#8D53FF] to-[#EC4899] text-white px-5 py-3 rounded-full shadow-[0_4px_20px_rgba(141,83,255,0.3)] hover:shadow-[0_6px_30px_rgba(141,83,255,0.5)] transition-all duration-300 hover:scale-105"
+          aria-label="Schedule free consultation"
         >
           <Zap size={16} fill="white" className="text-white" />
           <span className="text-sm font-semibold whitespace-nowrap">Free Consultation</span>
-        </button>
+        </a>
       </div>
     </div>
   );
